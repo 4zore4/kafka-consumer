@@ -1,0 +1,35 @@
+server:
+  port: 2334
+
+spring:
+  kafka:
+    bootstrap-servers: 139.198.4.132:9092
+    producer:
+      acks: 1
+    consumer:
+      auto-commit-interval: 2000
+      auto-offset-reset: latest
+      max-poll-records: 1000
+      enable-auto-commit: false
+
+    listener:
+      concurrency: 1
+      ack-mode: manual_immediate
+      missing-topics-fatal: false
+      type: batch
+      idle-between-polls: 1000
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  influx:
+    url:
+    database:
+    user:
+    password:
+
+kafka:
+  topic: demo
+  group: topic.group1
